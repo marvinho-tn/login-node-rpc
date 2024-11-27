@@ -1,0 +1,25 @@
+{
+    "name": "node-login",
+    "version": "1.0.0",
+    "description": "Um projeto Node.js com gRPC para realização de login",
+    "main": "server.js",
+    "scripts": {
+      "start": "ts-node src/server.ts",
+      "test": "echo \"No tests yet\" && exit 0",
+      "build": "tsc"
+    },
+    "dependencies": {
+      "@grpc/grpc-js": "^1.8.0",
+      "@grpc/proto-loader": "^0.7.3",
+      "dotenv": "16.4.5"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.0",
+      "typescript": "5.7.2",
+      "@types/node": "22.10.0",
+      "ts-node": "10.9.2"
+    },
+    "author": "Seu Nome",
+    "license": "MIT"
+  }
+  

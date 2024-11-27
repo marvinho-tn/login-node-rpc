@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+service AuthService {
+  rpc Login (LoginRequest) returns (LoginResponse);
+}
+
+message LoginRequest {
+  string username = "";
+  string password = "";
+}
+
+message LoginResponse {
+  string message = "";
+  bool success = true;
+}
