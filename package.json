@@ -4,14 +4,16 @@
     "description": "Um projeto Node.js com gRPC para realização de login",
     "main": "server.js",
     "scripts": {
-      "start": "ts-node src/server.ts",
+      "start:server": "ts-node src/server.ts",
+      "start:client": "ts-node src/client.ts",
       "test": "echo \"No tests yet\" && exit 0",
       "build": "tsc"
     },
     "dependencies": {
       "@grpc/grpc-js": "^1.8.0",
       "@grpc/proto-loader": "^0.7.3",
-      "dotenv": "16.4.5"
+      "dotenv": "16.4.5",
+      "readline": "1.3.0"
     },
     "devDependencies": {
       "nodemon": "^3.0.0",
