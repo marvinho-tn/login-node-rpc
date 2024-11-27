@@ -1,4 +1,4 @@
-export default class LoginResponse {
+export default class Result {
     success: boolean;
     message: string;
 

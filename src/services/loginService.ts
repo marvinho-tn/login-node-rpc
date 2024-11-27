@@ -1,12 +1,15 @@
-import LoginRequest from '../models/loginRequest';
-import LoginResponse from '../models/loginResponse';
+import Result from '../models/result';
+import UserRepository from '../repositories/userRepository';
 
 export default class LoginService {
-  login(request: LoginRequest): LoginResponse {
-      if (request.username === process.env.DEFAULT_USERNAME && request.password === process.env.DEFAULT_PASSWORD) {
-        return new LoginResponse ('Login successful', true);
-      } else {
-        return new LoginResponse ('Invalid credentials', false);
-      }
+  login(username: string, password: string): Result {
+    const repository = new UserRepository();
+    const user = repository.getUserByName(username);
+
+    if (password === user?.password) {
+      return new Result('Login successful', true);
+    } else {
+      return new Result('Invalid credentials', false);
     }
+  }
 }

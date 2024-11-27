@@ -1,4 +1,4 @@
-export default class LoginRequest {
+export default class User {
     username: string;
     password: string;
 

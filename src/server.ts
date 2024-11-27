@@ -15,15 +15,15 @@ const packageDefinition = protoLoader.loadSync('./src/protos/login.proto', {
 
 const protoDescriptor = grpc.loadPackageDefinition(packageDefinition) as any;
 
-// Obtenha a definição do serviço
+// Obtem a definição do serviço
 const AuthService = protoDescriptor.AuthService;
 
-// Configuração do servidor
+// Configura o servidor
 function main() {
   const server = new grpc.Server();
 
   server.addService(AuthService.service, { Login: login });
-  
+
   const address = process.env.SERVER_ADDRESS ?? '';
 
   server.bindAsync(address, grpc.ServerCredentials.createInsecure(), () => {

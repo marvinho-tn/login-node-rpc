@@ -4,7 +4,7 @@ import * as readline from 'readline';
 
 require('dotenv').config();
 
-// Carregue o arquivo .proto
+// Carrega o arquivo .proto
 const packageDefinition = protoLoader.loadSync('./src/protos/login.proto', {
     keepCase: true,
     longs: String,
@@ -15,7 +15,7 @@ const packageDefinition = protoLoader.loadSync('./src/protos/login.proto', {
 
 const protoDescriptor = grpc.loadPackageDefinition(packageDefinition) as any;
 
-// Obtenha a definição do serviço AuthService
+// Obtem a definição do serviço AuthService
 const AuthService = protoDescriptor.AuthService;
 
 // Função para obter entrada do usuário
@@ -33,20 +33,19 @@ function prompt(question: string): Promise<string> {
     });
 }
 
-// Função principal do cliente
 async function main() {
     // Solicita as credenciais do usuário
     const username = await prompt('Digite seu usuário: ');
     const password = await prompt('Digite sua senha: ');
     const address = process.env.SERVER_ADDRESS;
 
-    // Conecte-se ao servidor gRPC
+    // Conecta ao servidor gRPC
     const client = new AuthService(address, grpc.credentials.createInsecure());
 
     // Dados para o login
     const loginRequest = { username, password };
 
-    // Chame o método Login do serviço
+    // Chama o método Login do serviço
     client.Login(loginRequest, (err: grpc.ServiceError | null, response: { message: string; success: boolean }) => {
         if (err) {
             console.error('Erro ao realizar login:', err.message);
