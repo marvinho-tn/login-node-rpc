@@ -6,7 +6,7 @@
     "scripts": {
       "start:server": "ts-node src/server.ts",
       "start:client": "ts-node src/client.ts",
-      "test": "echo \"No tests yet\" && exit 0",
+      "test": "npx mocha -r ts-node/register tests/*",
       "build": "tsc"
     },
     "dependencies": {
@@ -18,8 +18,10 @@
     "devDependencies": {
       "nodemon": "^3.0.0",
       "typescript": "5.7.2",
+      "ts-node": "10.9.2",
       "@types/node": "22.10.0",
-      "ts-node": "10.9.2"
+      "@types/chai": "5.0.1",
+      "@types/mocha": "10.0.10"
     },
     "author": "Seu Nome",
     "license": "MIT"

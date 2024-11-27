@@ -1,11 +1,12 @@
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import * as readline from 'readline';
+import { PROTO_PATH } from './utils/constants';
 
 require('dotenv').config();
 
 // Carrega o arquivo .proto
-const packageDefinition = protoLoader.loadSync('./src/protos/login.proto', {
+const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
     keepCase: true,
     longs: String,
     enums: String,
