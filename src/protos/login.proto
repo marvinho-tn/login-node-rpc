@@ -5,11 +5,11 @@ service AuthService {
 }
 
 message LoginRequest {
-  string username = "";
-  string password = "";
+  string username = 1;
+  string password = 2;
 }
 
 message LoginResponse {
-  string message = "";
-  bool success = true;
+  string message = 1;
+  bool success = 2;
 }

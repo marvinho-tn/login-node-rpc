@@ -5,7 +5,7 @@ import login from './controllers/loginController';
 require('dotenv').config();
 
 // Carrega o arquivo .proto
-const packageDefinition = protoLoader.loadSync('login.proto', {
+const packageDefinition = protoLoader.loadSync('./src/protos/login.proto', {
   keepCase: true,
   longs: String,
   enums: String,
@@ -28,7 +28,6 @@ function main() {
 
   server.bindAsync(address, grpc.ServerCredentials.createInsecure(), () => {
     console.log(`Server running at ${address}`);
-    server.start();
   });
 }
 
