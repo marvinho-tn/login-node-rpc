@@ -2,8 +2,9 @@ import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import * as readline from 'readline';
 import { PROTO_PATH } from '../utils/constants';
+import { config } from 'dotenv';
 
-require('dotenv').config();
+config();
 
 // Carrega o arquivo .proto
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {

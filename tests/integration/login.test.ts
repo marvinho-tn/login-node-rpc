@@ -2,8 +2,9 @@ import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import { expect } from 'chai';
 import { PROTO_PATH, ERRORS, MESSAGES } from '../../src/common/utils/constants';
+import { config } from 'dotenv';
 
-require('dotenv').config();
+config();
 
 const SERVER_ADDRESS = process.env.SERVER_ADDRESS ?? '';
 const DEFAULT_USERNAME = process.env.DEFAULT_USERNAME ?? '';

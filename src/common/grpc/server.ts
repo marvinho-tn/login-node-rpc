@@ -4,8 +4,9 @@ import login from '../../modules/auth/controllers/loginController';
 import { PROTO_PATH } from '../utils/constants';
 import UserRepository from '../../modules/auth/infra/repositories/userRepository';
 import LoginService from '../../modules/auth/domain/services/loginService';
+import { config } from 'dotenv';
 
-require('dotenv').config();
+config();
 
 // Carrega o arquivo .proto
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
