@@ -4,7 +4,7 @@ import IUserRepository from '../src/modules/auth/domain/interfaces/userRepositor
 import LoginService from '../src/modules/auth/domain/services/loginService';
 import Result from '../src/modules/auth/domain/models/result';
 
-jest.mock('../src/modules/auth/infra/repositories/userRepository'); // Mocka a classe UserRepository
+jest.mock('../src/modules/auth/domain/interfaces/userRepository');
 
 describe('LoginService', () => {
   let userRepositoryMock: jest.Mocked<IUserRepository>;
