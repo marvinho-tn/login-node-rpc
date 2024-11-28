@@ -22,7 +22,7 @@ describe('LoginService', () => {
 
   it('Deve realizar login com sucesso', async () => {
     const validUser = { username: 'validuser', password: 'validpassword' };
-    
+
     userRepositoryMock.expects('getUserByName')
       .withArgs(validUser.username)
       .returns(Promise.resolve(validUser));

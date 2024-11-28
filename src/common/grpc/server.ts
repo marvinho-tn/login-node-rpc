@@ -6,7 +6,7 @@ config();
 
 function main() {
   const server = new grpc.Server();
-  
+
   configureDependencies(server);
 
   const address = process.env.SERVER_ADDRESS ?? '';
