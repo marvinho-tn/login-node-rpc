@@ -1,8 +1,8 @@
 import IUserRepository from '../../domain/interfaces/userRepository';
 import User from '../../domain/models/user';
 
-export default class UserRepository implements IUserRepository {
-  private readonly defaultUser: User;
+export default class InMemoryUserRepository implements IUserRepository {
+  private static readonly users: Array<User> = [];
 
   /**
    * Construtor para injetar o usuário padrão.
@@ -10,7 +10,9 @@ export default class UserRepository implements IUserRepository {
    * @param defaultUsername Usuário padrão.
    */
   constructor(defaultUsername: string, defaultPassowrd: string) {
-    this.defaultUser = new User(defaultUsername, defaultPassowrd);
+    if (InMemoryUserRepository.users.length === 0) {
+      InMemoryUserRepository.users.push(new User(defaultUsername, defaultPassowrd));
+    }
   }
 
   /**
@@ -19,9 +21,14 @@ export default class UserRepository implements IUserRepository {
    * @returns Retorna o usuário encontrado ou `null` se não encontrado.
    */
   async getUserByName(username: string): Promise<User | null> {
-    if (username === this.defaultUser.username) {
-      return this.defaultUser;
-    }
-    return null;
+    let returnUser = null;
+
+    InMemoryUserRepository.users.forEach((user) => {
+      if (username === user.username) {
+        returnUser = user;
+      }
+    });
+
+    return returnUser;
   }
 }

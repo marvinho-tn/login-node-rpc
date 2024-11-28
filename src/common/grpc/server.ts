@@ -6,10 +6,9 @@ config();
 
 function main() {
   const server = new grpc.Server();
+  const address = process.env.SERVER_ADDRESS ?? '';
 
   configureDependencies(server);
-
-  const address = process.env.SERVER_ADDRESS ?? '';
 
   server.bindAsync(address, grpc.ServerCredentials.createInsecure(), () => {
     console.log(`Server running at ${address}`);

@@ -3,12 +3,12 @@ import * as grpc from '@grpc/grpc-js';
 import AuthService from "../../modules/auth/infra/protos/configuration/authConfiguration";
 import login from '../../modules/auth/controllers/loginController';
 import LoginService from "../../modules/auth/domain/services/loginService";
-import UserRepository from "../../modules/auth/infra/repositories/userRepository";
+import InMemoryUserRepository from "../../modules/auth/infra/repositories/imMemoryUserRepository";
 
 export default function configureDependencies(server: Server) {
     const defaultUsername = process.env.DEFAULT_USERNAME ?? '';
     const defaultPassword = process.env.DEFAULT_PASSWORD ?? '';
-    const userRepository = new UserRepository(defaultUsername, defaultPassword);
+    const userRepository = new InMemoryUserRepository(defaultUsername, defaultPassword);
     const loginService = new LoginService(userRepository);
 
     server.addService(AuthService.service, {
