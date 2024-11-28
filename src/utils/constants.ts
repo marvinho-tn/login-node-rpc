@@ -1,6 +1,15 @@
+// Caminho do arquivo proto para o serviço gRPC
 export const PROTO_PATH = './src/protos/login.proto';
-export const LOGIN_SUCCESSFUL_MESSAGE = 'Login successful';
-export const INVALID_CREDENTIALS_MESSAGE = 'Invalid credentials';
-export const LOGIN_SERVICE_ERROR = 'Erro no serviço de login:';
-export const LOGIN_PROCESS_ERROR = 'Erro ao processar o login. Tente novamente mais tarde.';
-export const REQUIRED_USERNAME_OR_PASSWORD = 'Nome de usuário e senha são obrigatórios.';
+
+// Mensagens de sucesso
+export const MESSAGES = {
+  LOGIN_SUCCESS: 'Autorizado com sucesso.',
+};
+
+// Mensagens de erro
+export const ERRORS = {
+  INVALID_CREDENTIALS: 'Crendenciais inválidas.',
+  LOGIN_ERROR: 'Erro no serviço de login:',
+  LOGIN_PROCESS_ERROR: 'Erro ao processar o login. Tente novamente mais tarde.',
+  REQUIRED_FIELDS: 'Nome de usuário e senha são obrigatórios.',
+};

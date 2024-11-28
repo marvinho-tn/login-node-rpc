@@ -1,6 +1,6 @@
 import Result from '../models/result';
 import UserRepository from '../repositories/userRepository';
-import { INVALID_CREDENTIALS_MESSAGE, LOGIN_SUCCESSFUL_MESSAGE, REQUIRED_USERNAME_OR_PASSWORD } from '../utils/constants';
+import { MESSAGES, ERRORS } from '../utils/constants';
 
 export default class LoginService {
   private readonly repository: UserRepository;
@@ -21,15 +21,15 @@ export default class LoginService {
    */
   async login(username: string, password: string): Promise<Result> {
     if (!username || !password) {
-      return Result.failure(REQUIRED_USERNAME_OR_PASSWORD);
+      return Result.failure(ERRORS.REQUIRED_FIELDS);
     }
 
     const user = await this.repository.getUserByName(username);
 
     if (user && password === user.password) {
-      return Result.success(LOGIN_SUCCESSFUL_MESSAGE);
+      return Result.success(MESSAGES.LOGIN_SUCCESS);
     }
 
-    return Result.failure(INVALID_CREDENTIALS_MESSAGE);
+    return Result.failure(ERRORS.INVALID_CREDENTIALS);
   }
 }
