@@ -1,6 +1,6 @@
 import { config } from 'dotenv';
-import WebSocket from 'ws';
 import readlineSync from 'readline-sync';
+import WebSocket from 'ws';
 
 config();
 

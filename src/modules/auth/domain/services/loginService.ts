@@ -1,7 +1,7 @@
-import Result from '../models/result';
-import IUserRepository from '../interfaces/userRepository';
-import ILoginService from '../interfaces/loginService';
 import { MESSAGES, ERRORS } from '../../../../common/utils/constants';
+import ILoginService from '../interfaces/loginService';
+import IUserRepository from '../interfaces/userRepository';
+import Result from '../models/result';
 
 export default class LoginService implements ILoginService {
   private readonly repository: IUserRepository;

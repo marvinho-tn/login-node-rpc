@@ -1,7 +1,7 @@
-import * as WebSocket from 'ws';
-import * as grpc from '@grpc/grpc-js';
-import AuthService from '../../modules/auth/infra/protos/configuration/authConfiguration';
 import { config } from 'dotenv';
+import * as grpc from '@grpc/grpc-js';
+import * as WebSocket from 'ws';
+import AuthService from '../../modules/auth/infra/protos/configuration/authConfiguration';
 
 config();
 

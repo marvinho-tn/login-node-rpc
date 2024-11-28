@@ -1,11 +1,11 @@
-import { expect } from 'chai';
-import sinon from 'sinon';
-import LoginService from '../src/modules/auth/domain/services/loginService';
-import UserRepository from '../src/modules/auth/infra/repositories/userRepository';
-import Result from '../src/modules/auth/domain/models/result';
 import { ERRORS, MESSAGES } from '../src/common/utils/constants';
+import { expect } from 'chai';
 import ILoginService from '../src/modules/auth/domain/interfaces/loginService';
 import IUserRepository from '../src/modules/auth/domain/interfaces/userRepository';
+import LoginService from '../src/modules/auth/domain/services/loginService';
+import Result from '../src/modules/auth/domain/models/result';
+import sinon from 'sinon';
+import UserRepository from '../src/modules/auth/infra/repositories/userRepository';
 
 describe('LoginService', () => {
   let userRepositoryMock: sinon.SinonMock;

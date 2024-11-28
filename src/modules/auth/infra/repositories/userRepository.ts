@@ -1,5 +1,5 @@
-import User from '../../domain/models/user';
 import IUserRepository from '../../domain/interfaces/userRepository';
+import User from '../../domain/models/user';
 
 export default class UserRepository implements IUserRepository {
   private readonly defaultUser: User;

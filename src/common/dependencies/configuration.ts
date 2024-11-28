@@ -1,9 +1,9 @@
-import * as grpc from '@grpc/grpc-js';
 import { Server } from "@grpc/grpc-js";
-import login from '../../modules/auth/controllers/loginController';
-import UserRepository from "../../modules/auth/infra/repositories/userRepository";
-import LoginService from "../../modules/auth/domain/services/loginService";
+import * as grpc from '@grpc/grpc-js';
 import AuthService from "../../modules/auth/infra/protos/configuration/authConfiguration";
+import login from '../../modules/auth/controllers/loginController';
+import LoginService from "../../modules/auth/domain/services/loginService";
+import UserRepository from "../../modules/auth/infra/repositories/userRepository";
 
 export default function configureDependencies(server: Server) {
     const defaultUsername = process.env.DEFAULT_USERNAME ?? '';

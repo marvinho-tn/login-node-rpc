@@ -1,5 +1,5 @@
-import * as grpc from '@grpc/grpc-js';
 import { config } from 'dotenv';
+import * as grpc from '@grpc/grpc-js';
 import configureDependencies from '../dependencies/configuration';
 
 config();
