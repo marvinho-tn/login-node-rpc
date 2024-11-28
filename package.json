@@ -5,7 +5,8 @@
     "main": "src/common/grpc/server.ts",
     "scripts": {
         "start:server": "ts-node src/common/grpc/server.ts",
-        "start:client": "ts-node src/common/grpc/client.ts",
+        "start:wss-server": "ts-node src/common/websocket/server.ts",
+        "start:client": "ts-node src/common/websocket/client.ts",
         "test:unit": "npx mocha -r ts-node/register tests/units/*.test.ts",
         "test:integration": "npx mocha -r ts-node/register tests/integration/*.test.ts",
         "build": "tsc"
@@ -14,7 +15,11 @@
         "@grpc/grpc-js": "^1.8.0",
         "@grpc/proto-loader": "^0.7.3",
         "dotenv": "16.4.5",
-        "readline": "1.3.0"
+        "readline": "1.3.0",
+        "@types/ws": "8.5.13",
+        "ws": "8.18.0",
+        "readline-sync": "1.4.10",
+        "@types/readline-sync": "1.4.8"
     },
     "devDependencies": {
         "@types/chai": "5.0.1",
