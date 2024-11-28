@@ -10,16 +10,13 @@ const SERVER_ADDRESS = process.env.SERVER_ADDRESS ?? '';
 const DEFAULT_USERNAME = process.env.DEFAULT_USERNAME ?? '';
 const DEFAULT_PASSWORD = process.env.DEFAULT_PASSWORD ?? '';
 
-// Testes de Login gRPC
 describe('Login gRPC Tests', () => {
   let client: any;
 
-  // Inicializar cliente gRPC antes dos testes
   before(() => {
     client = new AuthService(SERVER_ADDRESS, grpc.credentials.createInsecure());
   });
 
-  // Teste de sucesso no login
   it('Deve realizar login com sucesso', (done) => {
     const loginRequest = { username: DEFAULT_USERNAME, password: DEFAULT_PASSWORD };
 
@@ -31,7 +28,6 @@ describe('Login gRPC Tests', () => {
     });
   });
 
-  // Teste de nome de usuário inválido
   it('Deve falhar no login com nome de usuário inválido', (done) => {
     const loginRequest = { username: 'wronguser', password: DEFAULT_PASSWORD };
 
@@ -43,7 +39,6 @@ describe('Login gRPC Tests', () => {
     });
   });
 
-  // Teste de senha inválida
   it('Deve falhar no login com senha inválida', (done) => {
     const loginRequest = { username: DEFAULT_USERNAME, password: 'wrongpassword' };
 
@@ -55,7 +50,6 @@ describe('Login gRPC Tests', () => {
     });
   });
 
-  // Teste de nome de usuário ausente
   it('Deve falhar no login sem nome de usuário', (done) => {
     const loginRequest = { username: '', password: DEFAULT_PASSWORD };
 
@@ -67,7 +61,6 @@ describe('Login gRPC Tests', () => {
     });
   });
 
-  // Teste de senha ausente
   it('Deve falhar no login sem senha', (done) => {
     const loginRequest = { username: DEFAULT_USERNAME, password: '' };
 
@@ -79,7 +72,6 @@ describe('Login gRPC Tests', () => {
     });
   });
 
-  // Fechar cliente após os testes
   after(() => {
     client.close();
   });
