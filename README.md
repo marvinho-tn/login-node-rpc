@@ -59,7 +59,7 @@ npm run build
 Para iniciar o servidor gRPC, use o comando abaixo:
 
 ```bash
-npm run server
+npm run start:server
 ```
 
 Isso irá subir o servidor gRPC, que ficará aguardando por conexões para validar o login via RPC.
@@ -69,7 +69,7 @@ Isso irá subir o servidor gRPC, que ficará aguardando por conexões para valid
 Para iniciar o servidor WebSocket, use o comando:
 
 ```bash
-npm run ws-server
+npm run start:wss-server
 ```
 
 Este servidor WebSocket será responsável por gerenciar as conexões de clientes e passar a comunicação para o serviço gRPC para autenticação.
@@ -79,7 +79,7 @@ Este servidor WebSocket será responsável por gerenciar as conexões de cliente
 Se você deseja testar a aplicação via WebSocket, pode iniciar o cliente WebSocket com:
 
 ```bash
-npm run client
+npm run start:client
 ```
 
 Esse cliente vai se conectar ao servidor WebSocket e permitir que você teste o login.
