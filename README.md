@@ -33,7 +33,7 @@ cd <diretório do projeto>
 O projeto usa um arquivo `.env` para configurar as variáveis de ambiente. Para criar esse arquivo, copie o conteúdo de `env-sample` para um novo arquivo chamado `.env`:
 
 ```bash
-cp env-sample .env
+cp .env-sample .env
 ```
 
 Agora, edite o arquivo `.env` e configure os valores conforme necessário (como portas, credenciais, etc.).
