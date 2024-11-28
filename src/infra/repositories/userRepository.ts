@@ -1,6 +1,7 @@
-import User from '../models/user';
+import User from '../../domain/models/user';
+import IUserRepository from '../../domain/repositories/userRepository';
 
-export default class UserRepository {
+export default class UserRepository implements IUserRepository {
   private readonly defaultUser: User;
 
   /**

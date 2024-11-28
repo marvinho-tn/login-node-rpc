@@ -1,12 +1,12 @@
 import * as grpc from '@grpc/grpc-js';
-import LoginService from '../services/loginService';
 import { ERRORS } from '../utils/constants';
+import ILoginService from '../domain/services/loginService';
 
 async function login(
   call: grpc.ServerUnaryCall<{ username: string; password: string }, {}>,
   callback: grpc.sendUnaryData<{ message: string; success: boolean }>
 ) {
-  const service = call.metadata.get('loginService')[0] as unknown as LoginService;
+  const service = call.metadata.get('loginService')[0] as unknown as ILoginService;
 
   try {
     const response = await service.login(

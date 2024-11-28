@@ -1,15 +1,16 @@
-import Result from '../models/result';
-import UserRepository from '../repositories/userRepository';
-import { MESSAGES, ERRORS } from '../utils/constants';
+import Result from '../../domain/models/result';
+import IUserRepository from '../../domain/repositories/userRepository';
+import ILoginService from '../../domain/services/loginService';
+import { MESSAGES, ERRORS } from '../../utils/constants';
 
-export default class LoginService {
-  private readonly repository: UserRepository;
+export default class LoginService implements ILoginService {
+  private readonly repository: IUserRepository;
 
   /**
    * Construtor para injetar dependência do repositório de usuários.
    * @param repository Instância de UserRepository.
    */
-  constructor(repository: UserRepository) {
+  constructor(repository: IUserRepository) {
     this.repository = repository;
   }
 

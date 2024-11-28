@@ -2,8 +2,8 @@ import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import login from './controllers/loginController';
 import { PROTO_PATH } from './utils/constants';
-import UserRepository from './repositories/userRepository';
-import LoginService from './services/loginService';
+import UserRepository from './infra/repositories/userRepository';
+import LoginService from './application/services/loginService';
 
 require('dotenv').config();
 
