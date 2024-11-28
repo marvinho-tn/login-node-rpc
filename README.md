@@ -98,9 +98,9 @@ Isso executará todos os testes automatizados configurados no projeto.
 
 - **`npm install`**: Instala todas as dependências do projeto.
 - **`npm run build`**: Compila o projeto TypeScript para JavaScript.
-- **`npm run server`**: Inicia o servidor gRPC.
-- **`npm run ws-server`**: Inicia o servidor WebSocket.
-- **`npm run client`**: Inicia o cliente WebSocket para testes.
+- **`npm run start:server`**: Inicia o servidor gRPC.
+- **`npm run start:wss-server`**: Inicia o servidor WebSocket.
+- **`npm run start:client`**: Inicia o cliente WebSocket para testes.
 - **`npm test`**: Executa os testes automatizados.
 
 ## Tecnologias Utilizadas
