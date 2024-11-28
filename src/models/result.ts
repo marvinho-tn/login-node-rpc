@@ -1,6 +1,6 @@
 export default class Result {
-    success: boolean;
-    message: string;
+    readonly success: boolean;
+    readonly message: string;
 
     constructor(message: string, success: boolean) {
         this.message = message;
