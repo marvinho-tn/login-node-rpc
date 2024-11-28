@@ -1,26 +1,11 @@
 import * as grpc from '@grpc/grpc-js';
-import * as protoLoader from '@grpc/proto-loader';
 import login from '../../modules/auth/controllers/loginController';
-import { PROTO_PATH } from '../utils/constants';
 import UserRepository from '../../modules/auth/infra/repositories/userRepository';
 import LoginService from '../../modules/auth/domain/services/loginService';
 import { config } from 'dotenv';
+import AuthService from '../../modules/auth/infra/protos/configuration/authConfiguration';
 
 config();
-
-// Carrega o arquivo .proto
-const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
-  keepCase: true,
-  longs: String,
-  enums: String,
-  defaults: true,
-  oneofs: true,
-});
-
-const protoDescriptor = grpc.loadPackageDefinition(packageDefinition) as any;
-
-// Obtem a definição do serviço
-const AuthService = protoDescriptor.AuthService;
 
 // Configura o servidor
 function main() {

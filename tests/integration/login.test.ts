@@ -1,25 +1,14 @@
 import * as grpc from '@grpc/grpc-js';
-import * as protoLoader from '@grpc/proto-loader';
 import { expect } from 'chai';
-import { PROTO_PATH, ERRORS, MESSAGES } from '../../src/common/utils/constants';
+import { ERRORS, MESSAGES } from '../../src/common/utils/constants';
 import { config } from 'dotenv';
+import AuthService from '../../src/modules/auth/infra/protos/configuration/authConfiguration';
 
 config();
 
 const SERVER_ADDRESS = process.env.SERVER_ADDRESS ?? '';
 const DEFAULT_USERNAME = process.env.DEFAULT_USERNAME ?? '';
 const DEFAULT_PASSWORD = process.env.DEFAULT_PASSWORD ?? '';
-
-// Carregar definições do Proto
-const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
-  keepCase: true,
-  longs: String,
-  enums: String,
-  defaults: true,
-  oneofs: true,
-});
-const protoDescriptor = grpc.loadPackageDefinition(packageDefinition) as any;
-const AuthService = protoDescriptor.AuthService;
 
 // Testes de Login gRPC
 describe('Login gRPC Tests', () => {
