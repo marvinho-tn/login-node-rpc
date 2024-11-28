@@ -1,5 +1,5 @@
 // Caminho do arquivo proto para o serviço gRPC
-export const PROTO_PATH = './src/protos/login.proto';
+export const PROTO_PATH = './src/modules/auth/infra/protos/login.proto';
 
 // Mensagens de sucesso
 export const MESSAGES = {

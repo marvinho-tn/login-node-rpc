@@ -1,6 +1,6 @@
 import * as grpc from '@grpc/grpc-js';
-import { ERRORS } from '../utils/constants';
-import ILoginService from '../domain/services/loginService';
+import { ERRORS } from '../../../common/utils/constants';
+import ILoginService from '../domain/interfaces/loginService';
 
 async function login(
   call: grpc.ServerUnaryCall<{ username: string; password: string }, {}>,

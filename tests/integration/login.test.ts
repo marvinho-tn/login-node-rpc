@@ -1,7 +1,7 @@
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import { expect } from 'chai';
-import { PROTO_PATH, ERRORS, MESSAGES } from '../src/utils/constants';
+import { PROTO_PATH, ERRORS, MESSAGES } from '../../src/common/utils/constants';
 
 require('dotenv').config();
 

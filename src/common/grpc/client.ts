@@ -1,7 +1,7 @@
 import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import * as readline from 'readline';
-import { PROTO_PATH } from './utils/constants';
+import { PROTO_PATH } from '../utils/constants';
 
 require('dotenv').config();
 
