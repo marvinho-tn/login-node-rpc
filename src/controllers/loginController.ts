@@ -1,16 +1,12 @@
 import * as grpc from '@grpc/grpc-js';
 import LoginService from '../services/loginService';
 import { ERRORS } from '../utils/constants';
-import UserRepository from '../repositories/userRepository';
 
 async function login(
   call: grpc.ServerUnaryCall<{ username: string; password: string }, {}>,
   callback: grpc.sendUnaryData<{ message: string; success: boolean }>
 ) {
-  const defaultUsername = process.env.DEFAULT_USERNAME ?? '';
-  const defaultPassowrd = process.env.DEFAULT_PASSWORD ?? '';
-  const repository = new UserRepository(defaultUsername, defaultPassowrd);
-  const service = new LoginService(repository);
+  const service = call.metadata.get('loginService')[0] as unknown as LoginService;
 
   try {
     const response = await service.login(

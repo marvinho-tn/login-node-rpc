@@ -2,6 +2,8 @@ import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import login from './controllers/loginController';
 import { PROTO_PATH } from './utils/constants';
+import UserRepository from './repositories/userRepository';
+import LoginService from './services/loginService';
 
 require('dotenv').config();
 
@@ -23,7 +25,22 @@ const AuthService = protoDescriptor.AuthService;
 function main() {
   const server = new grpc.Server();
 
-  server.addService(AuthService.service, { Login: login });
+  // Injeção de dependências
+  const defaultUsername = process.env.DEFAULT_USERNAME ?? '';
+  const defaultPassword = process.env.DEFAULT_PASSWORD ?? '';
+  const userRepository = new UserRepository(defaultUsername, defaultPassword);
+  const loginService = new LoginService(userRepository);
+
+  // Registro do serviço e suas dependências
+  server.addService(AuthService.service, {
+    Login: (
+      call: grpc.ServerUnaryCall<{ username: string; password: string; }, {}>, 
+      callback: grpc.sendUnaryData<{ message: string; success: boolean; }>
+    ) => {
+      call.metadata.add('loginService', loginService as any);
+      login(call, callback);
+    },
+  });
 
   const address = process.env.SERVER_ADDRESS ?? '';
 
