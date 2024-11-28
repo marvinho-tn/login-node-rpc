@@ -6,4 +6,12 @@ export default class Result {
         this.message = message;
         this.success = success;
     }
+
+    static success(message: string): Result {
+      return new Result(message, true);
+    }
+  
+    static failure(message: string): Result {
+      return new Result(message, false);
+    }
 }
